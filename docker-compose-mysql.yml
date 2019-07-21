@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  web:
+    environment:
+        - ENV_SETTINGS=mysql
+
+  db:
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=dmtest
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
+
+  adminer:
+    image: adminer
+    ports:
+      - 8080:8080

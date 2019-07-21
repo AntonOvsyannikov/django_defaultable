@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  web:
+    environment:
+        - ENV_SETTINGS=postgres
+
+  db:
+    image: postgres:11.4
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=dmtest
+
+  adminer:
+    image: adminer
+    ports:
+      - 8080:8080
